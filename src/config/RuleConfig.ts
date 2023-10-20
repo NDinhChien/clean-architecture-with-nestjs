@@ -2,8 +2,8 @@ export class Rule {
   public static readonly AUTH = {
     USERNAME_FIELD: process.env.LOGIN_USERNAME_FIELD || 'username',
     PASSWORD_FIELD: process.env.LOGIN_PASSWORD_FIELD || 'password',
-  }
-  
+  };
+
   public static readonly TOKEN = {
     HEADER: process.env.TOKEN_HEADER || 'authorization',
     ISSUER: process.env.TOKEN_ISSUER || 'dev.xyz.com',

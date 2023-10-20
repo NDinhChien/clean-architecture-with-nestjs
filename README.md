@@ -15,21 +15,21 @@
 ##  About this project <a name = "about"></a>
 
 #### Core technologies
-1. **NestJs as backend framework**
-2. **MySql as database**
-3. **TypeOrm as Object Relational Mapper & TypeOrm Transactional**
-4. **Jest as testing framework**
-5. **Swagger as API Documentation**
+1. **NestJs** as backend framework
+2. **MySql** as database
+3. **TypeOrm** as Object Relational Mapper & **TypeOrm Transactional**
+4. **Jest** as testing framework
+5. **Swagger** as API Documentation
 6. **JWT**
 
-#### Inspiration
+
 This project is inspired by Mr.Pvarentsov's public repository  [Typescript-Clean-Architecture](https://github.com/pvarentsov/typescript-clean-architecture)
 I have learned a lot from his repository. But there is a problem with his codebase, that is he didn't choose to structure his project into modules, which is what NestJs aiming to. Instead divided it into layers corresponding to the Clean Architecture. This way, files that are related to same features are not grouped into one. Make it harder to understand, develop and maintain our app compared to a modulized app. It is not recommended to structure our app by layers though ([How to put it all together](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/))
 > So far we have been segregating the code based on layers, but that is the fine-grained code segregation. The coarse-grained segregation of code is at least as important and it’s about segregating the code according to sub-domains and bounded contexts, following Robert C. Martin ideas expressed in screaming architecture. This is often referred to as “Package by feature” or “Package by component” as opposed to”Package by layer“
 
 ## The Clean Architecture <a name = "cleanarchitecture"></a>
  
-The Clean Architecture divides our app into independent layers by interfaces, that developers can work on simultaneously and making changes will have least effects to the current codebase.
+The Clean Architecture seperates our app into independent layers by interfaces, that developers can work on simultaneously and making changes will have least effects to the current codebase.
 
 <p align="center"> 
     <img src="./asset/clean-architecture.png">
@@ -45,9 +45,6 @@ There are 4 main layers as follows:
 * **Domain Layer** contains table specifications of our databases (**Models/ Domail Entities**). This layer is less changing than *Core Service Layer* 
 
 * **Common Layer** contains **shared code** like helpers, utils,..etc. that will be used by other layers
-
-
-
 
 ### Clean Architecture In this project
 **Common/ Shared Layer ("core" folder)**\
@@ -140,4 +137,4 @@ I used [Jest](https://jestjs.io/) to writing some unit and end-to-end tests for 
 </p>
  
 ## Thank you <a name="thank"> </a>
-Thank you for reading this post. It is all my personal viewpoint as I spent many weeks to learn NestJs and build this project. I hope you can learn something new from this project as well. Wish you all the best!
+Thank you for reading this. It is all my personal viewpoint as I spent many weeks to learn NestJs and build this project. I hope you can learn something new from this project as well. Wish you all the best!

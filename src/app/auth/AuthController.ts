@@ -82,7 +82,7 @@ export class AuthController {
   public async logout(@HttpUser() user: User) {
     const adapter: UserLogoutPayload = await UserLogoutPayload.new({
       id: user.getId(),
-      email: user.getEmail()
+      email: user.getEmail(),
     });
 
     return CoreApiResponse.success(

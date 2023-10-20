@@ -30,7 +30,10 @@ export class UserLoginUseCase implements IUserLoginUseCase {
   ) {}
 
   public async execute(payload: UserLoginPayload): Promise<UserLoginResData> {
-    const user = await this.userRepo.getOne({ email: payload.email }, {includeRemoved: true});
+    const user = await this.userRepo.getOne(
+      { email: payload.email },
+      { includeRemoved: true },
+    );
     if (!user) {
       throw Exception.new({
         code: Code.BAD_REQUEST_ERROR,
@@ -70,19 +73,19 @@ export class UserLoginUseCase implements IUserLoginUseCase {
     return {
       id: id,
       accessToken: this.jwtService.sign(
-          new HttpJwtPayload(
-            id,
-            key.getAccessKey(),
-            Rule.TOKEN.ACCESS_TOKEN_VALIDITY,
-          ).toPlain(),
+        new HttpJwtPayload(
+          id,
+          key.getAccessKey(),
+          Rule.TOKEN.ACCESS_TOKEN_VALIDITY,
+        ).toPlain(),
       ),
       refreshToken: this.jwtService.sign(
         new HttpJwtPayload(
           id,
           key.getRefreshKey(),
           Rule.TOKEN.REFRESH_TOKEN_VALIDITY,
-        ).toPlain()
+        ).toPlain(),
       ),
-    }
+    };
   }
 }

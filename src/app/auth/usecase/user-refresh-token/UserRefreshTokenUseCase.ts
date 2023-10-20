@@ -70,18 +70,18 @@ export class UserRefreshTokenUseCase implements IUserRefreshTokenUseCase {
     return {
       id: user.getId(),
       accessToken: await this.jwtService.signAsync(
-          new HttpJwtPayload(
-            user.getId(),
-            key.getAccessKey(),
-            Rule.TOKEN.ACCESS_TOKEN_VALIDITY,
-          ).toPlain(),
+        new HttpJwtPayload(
+          user.getId(),
+          key.getAccessKey(),
+          Rule.TOKEN.ACCESS_TOKEN_VALIDITY,
+        ).toPlain(),
       ),
       refreshToken: await this.jwtService.signAsync(
-          new HttpJwtPayload(
-            user.getId(),
-            key.getRefreshKey(),
-            Rule.TOKEN.REFRESH_TOKEN_VALIDITY,
-          ).toPlain(),
+        new HttpJwtPayload(
+          user.getId(),
+          key.getRefreshKey(),
+          Rule.TOKEN.REFRESH_TOKEN_VALIDITY,
+        ).toPlain(),
       ),
     };
   }

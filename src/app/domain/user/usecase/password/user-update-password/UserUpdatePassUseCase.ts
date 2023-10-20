@@ -23,7 +23,6 @@ export class UserUpdatePassUseCase implements IUserUpdatePassUseCase {
 
     @Inject(UserDITokens.KeyRepository)
     private readonly keyRepo: IKeyRepository,
-
   ) {}
 
   @Transactional()
@@ -52,6 +51,6 @@ export class UserUpdatePassUseCase implements IUserUpdatePassUseCase {
     await user.updatePassword(payload.newPass);
     await this.userRepo.updateOne(user);
     await this.keyRepo.deleteOne({ email: email });
-    await this.loginRepo.deleteOne({email: email});
+    await this.loginRepo.deleteOne({ email: email });
   }
 }

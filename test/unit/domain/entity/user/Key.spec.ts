@@ -1,6 +1,3 @@
 describe(``, () => {
-
-  test(``, async () => {
-    
-  })
-})
+  test(``, async () => {});
+});

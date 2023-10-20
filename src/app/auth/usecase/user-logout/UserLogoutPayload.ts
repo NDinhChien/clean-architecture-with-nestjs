@@ -21,7 +21,7 @@ export class UserLogoutPayload
   @IsEmail()
   @Expose()
   public email: string;
-  
+
   public static async new(payload: IUserLogoutPayload) {
     const adapter: UserLogoutPayload = plainToInstance(
       UserLogoutPayload,

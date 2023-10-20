@@ -17,6 +17,6 @@ export class UserLogoutUseCase implements IUserLogoutUseCase {
 
   public async execute(payload: UserLogoutPayload): Promise<void> {
     await this.keyRepo.deleteOne({ user_id: payload.id });
-    await this.loginRepo.deleteOne({email: payload.email})
+    await this.loginRepo.deleteOne({ email: payload.email });
   }
 }

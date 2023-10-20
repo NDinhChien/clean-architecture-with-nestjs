@@ -36,9 +36,9 @@ export class Login extends EntityValidatableAdapter {
     if (this.triedTimes >= Rule.LOGIN.MAX_TRY_TIMES)
       throw Exception.new({
         code: Code.BAD_REQUEST_ERROR,
-        overrideMessage: `reached maximum try times, you can reset password or try again after ${
-          new Date(this.lastTryAt.getTime() + Rule.LOGIN.RENEW_DURATION).toString()
-        }`,
+        overrideMessage: `reached maximum try times, you can reset password or try again after ${new Date(
+          this.lastTryAt.getTime() + Rule.LOGIN.RENEW_DURATION,
+        ).toString()}`,
       });
 
     this.triedTimes += 1;
