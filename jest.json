@@ -1,0 +1,30 @@
+{
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "roots": [
+      "<rootDir>/test"
+    ],
+    "verbose": true,
+    "testEnvironment": "node",
+    "testRegex": "./test/.*.[spec,e2e].ts$",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "moduleNameMapper": {
+      "@core/(.*)$": "<rootDir>/src/core/$1",
+      "@infra/(.*)$": "<rootDir>/src/app/infra/$1",
+      "@app/(.*)$": "<rootDir>/src/app/$1",
+      "@test/(.*)$": "<rootDir>/test/$1"
+    },
+    "globalSetup": "<rootDir>/test/setup/ExposeEnv.ts",
+    "setupFiles": [
+      "<rootDir>/test/setup/jest.setup.ts"
+    ]
+  }
+  

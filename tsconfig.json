@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist",
+      "rootDirs": [
+        "./src",
+        "./test"
+      ],
+      "baseUrl": ".",
+      "paths": {
+        "@core/*": ["src/core/*"],
+        "@app/*": ["src/app/*"],
+        "@infra/*": ["src/app/infra/*"],
+        "@test/*": ["test/*"]
+      },
+      "module": "commonjs",
+      "target": "ES2020",
+      "lib": [
+        "ES2020"
+      ],
+      "types": [
+        "reflect-metadata",
+        "jest",
+        "node"
+      ],
+      "moduleResolution": "node",
+      "alwaysStrict": true,
+      "strict": true,  
+      "sourceMap": true,
+      "allowJs": false,
+      "strictPropertyInitialization": false,
+      "removeComments": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "skipLibCheck": true
+    },
+    "include": [
+      "./src/**/*.ts",
+      "./test/**/*.ts"
+    ]
+}
