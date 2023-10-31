@@ -6,7 +6,7 @@ export class CoreApiResponse<TData> {
 
   public message: string;
 
-  public readonly timestamp: number;
+  public readonly timestamp: string;
 
   public readonly data: Nullable<TData>;
 
@@ -14,7 +14,7 @@ export class CoreApiResponse<TData> {
     this.code = code;
     this.message = message;
     this.data = data || null;
-    this.timestamp = Date.now();
+    this.timestamp = new Date().toISOString();
   }
 
   public static success<TData>(

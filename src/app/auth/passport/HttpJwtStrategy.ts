@@ -11,7 +11,7 @@ import { Inject } from '@nestjs/common';
 import { UserDITokens } from '../../domain/user/UserDITokens';
 import { IUserRepository } from '../../infra/persistence/repository/interface/IUserRepository';
 import { IKeyRepository } from '../../infra/persistence/repository/interface/IKeyRepository';
-import { Key } from '../../domain/user/entity/key/Key';
+import { Key } from '../../domain/user/entity/Key';
 import { readPublicKey } from '../keys/readKey';
 
 @Injectable()

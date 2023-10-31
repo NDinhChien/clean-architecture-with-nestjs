@@ -8,7 +8,7 @@ import { IUserRefreshTokenUseCase } from '../usecase.interface';
 import { Exception } from '../../../../core/Exception';
 import { Code } from '../../../../core/common/Code';
 import { Rule } from '../../../../config/RuleConfig';
-import { Key } from '../../../domain/user/entity/key/Key';
+import { Key } from '../../../domain/user/entity/Key';
 import { HttpJwtPayload } from '../../types/HttpJwtPayload';
 import { UserRefreshTokenPayload } from './UserRefreshTokenPayload';
 import { User } from '../../../domain/user/entity/User';

@@ -1,7 +1,6 @@
 import { Exclude, Expose, plainToInstance } from 'class-transformer';
 import { UseCaseValidatableAdapter } from '../../../../../../core/class-validator/ValidatableAdapter';
-import { IsDefined, IsEmail } from 'class-validator';
-import { User } from '../../../entity/User';
+import { IsEmail } from 'class-validator';
 
 export interface IUserResetPasswordBody {
   email: string;

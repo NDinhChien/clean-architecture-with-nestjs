@@ -1,4 +1,4 @@
-import { Key } from '@app/domain/user/entity/key/Key';
+import { Key } from "../../../../domain/user/entity/Key";
 import { TypeOrmKey } from '../TypeOrmKey';
 
 export class TypeOrmKeyMapper {

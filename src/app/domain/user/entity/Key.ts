@@ -1,8 +1,7 @@
-import { CreateKeyEntityPayload } from './types/CreateKeyEntityPayload';
+import { CreateKeyEntityPayload } from './types/key/CreateKeyEntityPayload';
 import { randomBytes } from 'crypto';
 import { IsEmail, IsString, IsUUID } from 'class-validator';
-import { EntityValidatableAdapter } from '../../../../../core/class-validator/ValidatableAdapter';
-
+import { EntityValidatableAdapter } from '@core/class-validator/ValidatableAdapter';
 export class Key extends EntityValidatableAdapter {
   @IsUUID()
   private readonly user_id: string;

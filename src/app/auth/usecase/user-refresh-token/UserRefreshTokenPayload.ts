@@ -1,4 +1,3 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { Exclude, Expose, plainToInstance } from 'class-transformer';
 import { IsString } from 'class-validator';
 import { UseCaseValidatableAdapter } from '@core/class-validator/ValidatableAdapter';

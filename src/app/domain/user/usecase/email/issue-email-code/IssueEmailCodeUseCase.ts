@@ -3,7 +3,7 @@ import { IIssueEmailCodeUseCase } from '../../usecase.interface';
 import { IEmailRepository } from '@app/infra/persistence/repository/interface/IEmailRepository';
 import { UserDITokens } from '../../../UserDITokens';
 import { IssueEmailCodePayload } from './IssueEmailCodePayload';
-import { Email } from '../../../entity/email/Email';
+import { Email } from '../../../entity/Email';
 import { InfraDITokens } from '@app/infra/InfraDITokens';
 import { IEmailSenderService } from '@app/infra/email-sender/email-sender.interface';
 

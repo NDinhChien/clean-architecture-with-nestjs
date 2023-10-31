@@ -1,5 +1,5 @@
 import { Optional } from '../../../../../core/common/CommonTypes';
-import { Login } from '../../../../domain/user/entity/login/Login';
+import { Login } from '../../../../domain/user/entity/Login';
 
 export interface ILoginRepository {
   getOne(by: { email: string }): Promise<Optional<Login>>;

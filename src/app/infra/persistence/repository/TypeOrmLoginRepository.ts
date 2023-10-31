@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Nullable, Optional } from '@core/common/CommonTypes';
 import { InfraDITokens } from '../../InfraDITokens';
-import { Login } from '@app/domain/user/entity/login/Login';
+import { Login } from '../../../domain/user/entity/Login';
 import { TypeOrmLoginMapper } from '../entity/mapper/TypeOrmLoginMapper';
 import { TypeOrmLogin } from '../entity/TypeOrmLogin';
 import { DataSource, Repository, SelectQueryBuilder } from 'typeorm';

@@ -1,7 +1,7 @@
 import { Exception } from '@core/Exception';
 import { EntityValidatableAdapter } from '@core/class-validator/ValidatableAdapter';
 import { Code } from '@core/common/Code';
-import { CreateLoginEntityPayload } from './types/CreateLoginEntityPayload';
+import { CreateLoginEntityPayload } from './types/login/CreateLoginEntityPayload';
 import { Rule } from '@app/../config/RuleConfig';
 import { IsDate, IsEmail, IsNumber } from 'class-validator';
 

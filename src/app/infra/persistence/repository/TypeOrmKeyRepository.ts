@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Nullable, Optional } from '@core/common/CommonTypes';
 import { InfraDITokens } from '../../InfraDITokens';
-import { Key } from '../../../domain/user/entity/key/Key';
+import { Key } from '../../../domain/user/entity/Key';
 import { TypeOrmKeyMapper } from '../entity/mapper/TypeOrmKeyMapper';
 import { TypeOrmKey } from '../entity/TypeOrmKey';
 import {

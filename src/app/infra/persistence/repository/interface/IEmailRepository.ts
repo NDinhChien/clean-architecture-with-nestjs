@@ -1,5 +1,5 @@
 import { Optional } from '@core/common/CommonTypes';
-import { Email } from '@app/domain/user/entity/email/Email';
+import { Email } from '../../../../domain/user/entity/Email';
 
 export interface IEmailRepository {
   getOne(by: { email: string }): Promise<Optional<Email>>;

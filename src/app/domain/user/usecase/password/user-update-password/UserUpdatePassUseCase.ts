@@ -8,7 +8,7 @@ import { Transactional } from 'typeorm-transactional';
 import { IUserUpdatePassUseCase } from '../../usecase.interface';
 import { UserUpdatePassPayload } from './UserUpdatePassPayload';
 import { Optional } from '@core/common/CommonTypes';
-import { Login } from '../../../entity/login/Login';
+import { Login } from '../../../entity/Login';
 import { Rule } from '@app/../config/RuleConfig';
 import { IKeyRepository } from '@app/infra/persistence/repository/interface/IKeyRepository';
 

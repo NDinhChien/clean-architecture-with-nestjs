@@ -58,7 +58,6 @@ export class AuthController {
   ) {}
 
   @Post('login')
-  @HttpCode(HttpStatus.OK)
   @ApiBody({ type: UserLoginBody })
   @ApiResponse({ status: HttpStatus.OK, type: UserLoginRes })
   public async login(
@@ -75,7 +74,6 @@ export class AuthController {
   }
 
   @Delete('logout')
-  @HttpCode(HttpStatus.OK)
   @HttpAuth()
   @ApiBearerAuth()
   @ApiResponse({ status: HttpStatus.OK, type: UserLogoutRes })
@@ -92,7 +90,7 @@ export class AuthController {
   }
 
   @Put('token/refresh')
-  @HttpCode(HttpStatus.OK)
+  
   @ApiBearerAuth()
   @ApiBody({ type: UserRefreshTokenBody })
   @ApiResponse({ type: UserRefreshTokenRes })

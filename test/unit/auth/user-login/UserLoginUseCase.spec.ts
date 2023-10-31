@@ -12,7 +12,7 @@ import { createMock } from '@golevelup/ts-jest';
 import { IUserRepository } from '@app/infra/persistence/repository/interface/IUserRepository';
 import { ILoginRepository } from '@app/infra/persistence/repository/interface/ILoginRepository';
 import { IKeyRepository } from '@app/infra/persistence/repository/interface/IKeyRepository';
-import { Login } from '@app/domain/user/entity/login/Login';
+import { Login } from '../../../app/domain/user/entity/Login';
 import { ExpectUtils } from '../../../utils/ExpectUtils';
 
 let testingModule: TestingModule;

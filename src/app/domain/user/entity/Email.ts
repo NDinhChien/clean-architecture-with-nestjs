@@ -1,7 +1,7 @@
 import { EntityValidatableAdapter } from '@core/class-validator/ValidatableAdapter';
 import { Nullable } from '@core/common/CommonTypes';
-import { CreateEmailEntityPayload } from './types/CreateEmailEntityPayload';
-import { Rule } from '../../../../../config/RuleConfig';
+import { CreateEmailEntityPayload } from './types/email/CreateEmailEntityPayload';
+import { Rule } from '../../../../config/RuleConfig';
 import { Exception } from '@core/Exception';
 import { Code } from '@core/common/Code';
 import {

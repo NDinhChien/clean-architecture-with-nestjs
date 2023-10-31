@@ -1,4 +1,4 @@
-import { Exclude, Expose, plainToInstance } from 'class-transformer';
+import { Exclude, Expose, Transform, plainToInstance } from 'class-transformer';
 import {
   IsBoolean,
   IsBooleanString,
@@ -20,15 +20,18 @@ export class AdminGetUserListPayload
   extends UseCaseValidatableAdapter
   implements IAdminGetUserListPayload
 {
-  @IsNumberString()
+  @IsNumber()
+  @Transform(({value}) => Number(value))
   @Expose()
   public offset: number;
 
-  @IsNumberString()
+  @IsNumber()
+  @Transform(({value}) => Number(value))
   @Expose()
   public limit: number;
 
-  @IsBooleanString()
+  @IsBoolean()
+  @Transform(({value}) => Boolean(value))
   @Expose()
   public includeRemoved: boolean;
 
@@ -37,10 +40,7 @@ export class AdminGetUserListPayload
   ): Promise<AdminGetUserListPayload> {
     const adapter = plainToInstance(AdminGetUserListPayload, payload);
     await adapter.validate();
-    adapter.offset = parseInt(adapter.offset as unknown as string);
-    adapter.limit = parseInt(adapter.limit as unknown as string);
-    adapter.includeRemoved =
-      (adapter.limit as unknown as string) === 'true' ? true : false;
+
     return adapter;
   }
 }

@@ -30,8 +30,3 @@ export class UserLoginRes extends HttpRestApiResponse {
   @ApiProperty({ type: UserLoginResData })
   public data: UserLoginResData;
 }
-
-/*--------------Doc Response--------------*/
-/*---------------Interface----------------*/
-/*------------UseCase Payload-------------*/
-/*--------------Doc Request---------------*/

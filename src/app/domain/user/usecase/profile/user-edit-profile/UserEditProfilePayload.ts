@@ -1,6 +1,6 @@
-import { Exclude, Expose, plainToInstance } from 'class-transformer';
+import { Exclude, Expose, Transform, Type, plainToInstance } from 'class-transformer';
 import { UseCaseValidatableAdapter } from '../../../../../../core/class-validator/ValidatableAdapter';
-import { IsDateString, IsDefined, IsOptional, IsString } from 'class-validator';
+import { IsDate, IsDateString, IsDefined, IsOptional, IsString } from 'class-validator';
 import { User } from '../../../entity/User';
 
 export interface IUserEditProfileBody {
@@ -20,7 +20,8 @@ export class UserEditProfilePayload
   implements IUserEditProfilePayload
 {
   @IsOptional()
-  @IsDateString()
+  @IsDate()
+  @Transform(({value}) => new Date(value))
   @Expose()
   public birthday?: Date;
 
@@ -46,7 +47,6 @@ export class UserEditProfilePayload
   ): Promise<UserEditProfilePayload> {
     const adapter = plainToInstance(UserEditProfilePayload, payload);
     await adapter.validate();
-    adapter.birthday = new Date(adapter.birthday as unknown as string);
     adapter.user = payload.user;
     return adapter;
   }

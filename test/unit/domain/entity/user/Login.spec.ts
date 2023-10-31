@@ -1,4 +1,4 @@
-import { Login } from '@app/domain/user/entity/login/Login';
+import { Login } from "../../../../app/domain/user/entity/Login";
 import { Rule } from '@app/../config/RuleConfig';
 
 const originalMaxTryTimes = Rule.LOGIN.MAX_TRY_TIMES;

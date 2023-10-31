@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { RepositoryFindOptions } from '@core/RepositoryOptions';
 import { Nullable, Optional } from '@core/common/CommonTypes';
 import { InfraDITokens } from '../../InfraDITokens';
-import { Email } from '@app/domain/user/entity/email/Email';
+import { Email } from '../../../domain/user/entity/Email';
 import { TypeOrmEmailMapper } from '../entity/mapper/TypeOrmEmailMapper';
 import { TypeOrmEmail } from '../entity/TypeOrmEmail';
 import { DataSource, Repository, SelectQueryBuilder } from 'typeorm';

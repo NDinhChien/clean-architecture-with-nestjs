@@ -125,7 +125,6 @@ export class UserUsersController {
   ) {}
 
   @Post('/signup')
-  @HttpCode(HttpStatus.OK)
   @ApiBody({ type: UserSignUpBody })
   @ApiResponse({ status: HttpStatus.OK, type: UserSignUpRes })
   public async createUser(
@@ -143,7 +142,6 @@ export class UserUsersController {
   }
 
   @Get('/all')
-  @HttpCode(HttpStatus.OK)
   @HttpAuth(UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiQuery(offsetQuery)
@@ -166,7 +164,6 @@ export class UserUsersController {
   }
 
   @Get('id/:id')
-  @HttpCode(HttpStatus.OK)
   @HttpAuth(UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiParam(UserIdParam)
@@ -196,7 +193,6 @@ export class UserProfileController {
   ) {}
 
   @Get('me')
-  @HttpCode(HttpStatus.OK)
   @HttpAuth()
   @ApiBearerAuth()
   @ApiResponse({ status: HttpStatus.OK, type: UserInfoRes })
@@ -206,8 +202,7 @@ export class UserProfileController {
     return CoreApiResponse.success(UserInfoDto.newFromUser(user), 'My profile');
   }
 
-  @Post()
-  @HttpCode(HttpStatus.OK)
+  @Put()
   @HttpAuth()
   @ApiBearerAuth()
   @ApiBody({ type: UserEditProfileBody })
@@ -223,7 +218,6 @@ export class UserProfileController {
       intro: body.intro,
       user: user,
     });
-
     return CoreApiResponse.success(
       await this.userEditProfileUseCase.execute(adapter),
       'Profile updated.',
@@ -231,7 +225,6 @@ export class UserProfileController {
   }
 
   @Get('public/id/:id')
-  @HttpCode(HttpStatus.OK)
   @ApiResponse({ type: UserPublicInfoRes })
   @ApiParam(UserIdParam)
   public async getPublicProfile(
@@ -259,7 +252,6 @@ export class UserEmailController {
   ) {}
 
   @Put('issue')
-  @HttpCode(HttpStatus.OK)
   @ApiBody({ type: IssueEmailCodeBody })
   @ApiResponse({ type: IssueEmailCodeRes })
   public async issueEmailCode(
@@ -275,7 +267,6 @@ export class UserEmailController {
   }
 
   @Post('verify')
-  @HttpCode(HttpStatus.OK)
   @ApiBody({ type: UserVerifyEmailBody })
   @ApiResponse({ type: UserVerifyEmailRes })
   public async verifyEmail(
@@ -304,7 +295,6 @@ export class UserPasswordController {
   ) {}
 
   @Put('reset')
-  @HttpCode(HttpStatus.OK)
   @ApiBody({ type: UserResetPasswordBody })
   @ApiResponse({ type: UserResetPasswordRes })
   public async resetPassword(
@@ -321,7 +311,6 @@ export class UserPasswordController {
   }
 
   @Put()
-  @HttpCode(HttpStatus.OK)
   @HttpAuth()
   @ApiBearerAuth()
   @ApiBody({ type: UserUpdatePassBody })

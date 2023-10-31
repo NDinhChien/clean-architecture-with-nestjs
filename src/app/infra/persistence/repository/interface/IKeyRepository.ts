@@ -1,5 +1,5 @@
 import { Optional } from '../../../../../core/common/CommonTypes';
-import { Key } from '../../../../domain/user/entity/key/Key';
+import { Key } from '../../../../domain/user/entity/Key';
 
 export interface IKeyRepository {
   getOne(by: {
