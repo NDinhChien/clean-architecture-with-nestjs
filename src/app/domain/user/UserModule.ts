@@ -1,8 +1,5 @@
 import {
-  UserUsersController,
-  UserProfileController,
-  UserEmailController,
-  UserPasswordController,
+  UserController,
 } from './UserController';
 import { UserDITokens } from './UserDITokens';
 import { UserSignUpUseCase } from './usecase/users/user-signup/UserSignUpUseCase';
@@ -84,10 +81,7 @@ const useCaseProviders: Provider[] = [
 
 @Module({
   controllers: [
-    UserUsersController,
-    UserProfileController,
-    UserEmailController,
-    UserPasswordController,
+    UserController,
   ],
   providers: [...persistenceProviders, ...useCaseProviders],
   exports: [

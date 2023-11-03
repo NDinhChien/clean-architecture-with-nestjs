@@ -26,7 +26,7 @@ export const includeRemovedQuery = {
 };
 
 export class AdminGetUserListRes extends HttpRestApiResponse {
-  @ApiProperty({ type: 'string', example: 'User list.' })
+  @ApiProperty({ example: 'User list.' })
   public message: string;
 
   @ApiProperty({ type: UserInfoResData, isArray: true })

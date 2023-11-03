@@ -2,29 +2,29 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { UserInfoRes, UserInfoResData } from '../../dto/res/UserInfoRes';
 
 export class UserEditProfileBody {
-  @ApiPropertyOptional({ type: Date, example: '2001-11-25' })
+  @ApiPropertyOptional({ example: '00:00:00 25/11/2001'})
   birthday?: Date;
 
-  @ApiPropertyOptional({ type: 'string' })
+  @ApiPropertyOptional({ example: 'Dinh'})
   firstName?: string;
 
-  @ApiPropertyOptional({ type: 'string' })
+  @ApiPropertyOptional({ example: 'Chien'})
   lastName?: string;
 
-  @ApiPropertyOptional({ type: 'string', example: 'hello the world' })
+  @ApiPropertyOptional({ example: 'hello the world' })
   intro?: string;
 }
 
 export class UserEditProfileResData extends UserInfoResData {
-  @ApiProperty({ type: 'date', example: '2001-11-25T00:00:00.000Z' })
+  @ApiProperty({ example: '2001-11-25T00:00:00.000Z' })
   public birthday?: Date;
 
-  @ApiProperty({ type: 'string', example: 'hello the world' })
+  @ApiProperty({ example: 'hello the world' })
   public intro?: string;
 }
 
 export class UserEditProfileRes extends UserInfoRes {
-  @ApiProperty({ type: 'string', example: 'Profile updated' })
+  @ApiProperty({ example: 'Profile updated' })
   public message: string;
 
   @ApiProperty({ type: UserEditProfileResData })

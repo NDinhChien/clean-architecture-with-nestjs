@@ -112,8 +112,10 @@ import {
 
 @ApiTags('users')
 @Controller('users')
-export class UserUsersController {
+export class UserController {
+
   constructor(
+
     @Inject(UserDITokens.UserSignUpUseCase)
     private readonly userSignUpUseCase: IUserSignUpUseCase,
 
@@ -122,6 +124,25 @@ export class UserUsersController {
 
     @Inject(UserDITokens.AdminGetUserUseCase)
     private readonly adminGetUserUseCase: IAdminGetUserUseCase,
+
+    @Inject(UserDITokens.IssueEmailCodeUseCase)
+    private readonly issueEmailCodeUseCase: IIssueEmailCodeUseCase,
+
+    @Inject(UserDITokens.UserVerifyEmailUseCase)
+    private readonly userVerifyEmailUseCase: IUserVerifyEmailUseCase,
+
+    @Inject(UserDITokens.UserUpdatePassUseCase)
+    private readonly userUpdatePassUseCase: IUserUpdatePassUseCase,
+
+    @Inject(UserDITokens.UserResetPasswordUseCase)
+    private readonly userResetPasswordUseCase: IUserResetPasswordUseCase,
+
+    @Inject(UserDITokens.UserEditProfileUseCase)
+    private readonly userEditProfileUseCase: IUserEditProfileUseCase,
+
+    @Inject(UserDITokens.UserGetPubProfileUseCase)
+    private readonly userGetPubProfileUseCase: IUserGetPubProfileUseCase,
+
   ) {}
 
   @Post('/signup')
@@ -179,20 +200,8 @@ export class UserUsersController {
       'User profile',
     );
   }
-}
 
-@ApiTags('profile')
-@Controller('profile')
-export class UserProfileController {
-  constructor(
-    @Inject(UserDITokens.UserEditProfileUseCase)
-    private readonly userEditProfileUseCase: IUserEditProfileUseCase,
-
-    @Inject(UserDITokens.UserGetPubProfileUseCase)
-    private readonly userGetPubProfileUseCase: IUserGetPubProfileUseCase,
-  ) {}
-
-  @Get('me')
+  @Get('/profile/me')
   @HttpAuth()
   @ApiBearerAuth()
   @ApiResponse({ status: HttpStatus.OK, type: UserInfoRes })
@@ -202,7 +211,7 @@ export class UserProfileController {
     return CoreApiResponse.success(UserInfoDto.newFromUser(user), 'My profile');
   }
 
-  @Put()
+  @Put('/profile')
   @HttpAuth()
   @ApiBearerAuth()
   @ApiBody({ type: UserEditProfileBody })
@@ -224,7 +233,7 @@ export class UserProfileController {
     );
   }
 
-  @Get('public/id/:id')
+  @Get('profile/public/id/:id')
   @ApiResponse({ type: UserPublicInfoRes })
   @ApiParam(UserIdParam)
   public async getPublicProfile(
@@ -238,20 +247,9 @@ export class UserProfileController {
       'Public profile.',
     );
   }
-}
 
-@ApiTags('email')
-@Controller('email')
-export class UserEmailController {
-  constructor(
-    @Inject(UserDITokens.IssueEmailCodeUseCase)
-    private readonly issueEmailCodeUseCase: IIssueEmailCodeUseCase,
-
-    @Inject(UserDITokens.UserVerifyEmailUseCase)
-    private readonly userVerifyEmailUseCase: IUserVerifyEmailUseCase,
-  ) {}
-
-  @Put('issue')
+  
+  @Put('email/issue')
   @ApiBody({ type: IssueEmailCodeBody })
   @ApiResponse({ type: IssueEmailCodeRes })
   public async issueEmailCode(
@@ -266,7 +264,7 @@ export class UserEmailController {
     );
   }
 
-  @Post('verify')
+  @Post('email/verify')
   @ApiBody({ type: UserVerifyEmailBody })
   @ApiResponse({ type: UserVerifyEmailRes })
   public async verifyEmail(
@@ -281,36 +279,8 @@ export class UserEmailController {
       'Verify successfully',
     );
   }
-}
 
-@ApiTags('password')
-@Controller('password')
-export class UserPasswordController {
-  constructor(
-    @Inject(UserDITokens.UserUpdatePassUseCase)
-    private readonly userUpdatePassUseCase: IUserUpdatePassUseCase,
-
-    @Inject(UserDITokens.UserResetPasswordUseCase)
-    private readonly userResetPasswordUseCase: IUserResetPasswordUseCase,
-  ) {}
-
-  @Put('reset')
-  @ApiBody({ type: UserResetPasswordBody })
-  @ApiResponse({ type: UserResetPasswordRes })
-  public async resetPassword(
-    @Body() body: IUserResetPasswordBody,
-  ): Promise<CoreApiResponse<void>> {
-    const adapter: UserResetPasswordPayload =
-      await UserResetPasswordPayload.new({
-        email: body.email,
-      });
-    return CoreApiResponse.success(
-      await this.userResetPasswordUseCase.execute(adapter),
-      'Reset password successfully.',
-    );
-  }
-
-  @Put()
+  @Put('password')
   @HttpAuth()
   @ApiBearerAuth()
   @ApiBody({ type: UserUpdatePassBody })
@@ -329,4 +299,21 @@ export class UserPasswordController {
       'Password updated.',
     );
   }
+
+  @Put('password/reset')
+  @ApiBody({ type: UserResetPasswordBody })
+  @ApiResponse({ type: UserResetPasswordRes })
+  public async resetPassword(
+    @Body() body: IUserResetPasswordBody,
+  ): Promise<CoreApiResponse<void>> {
+    const adapter: UserResetPasswordPayload =
+      await UserResetPasswordPayload.new({
+        email: body.email,
+      });
+    return CoreApiResponse.success(
+      await this.userResetPasswordUseCase.execute(adapter),
+      'Reset password successfully.',
+    );
+  }
+
 }

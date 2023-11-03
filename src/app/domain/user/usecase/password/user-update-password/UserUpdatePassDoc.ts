@@ -3,14 +3,14 @@ import { IUserUpdatePassBody } from './UserUpdatePassPayload';
 import { HttpRestApiResponse } from '../../../../../../core/documentation/HttpRestApiResponse';
 
 export class UserUpdatePassBody implements IUserUpdatePassBody {
-  @ApiProperty({ type: 'string' })
+  @ApiProperty({ example: '12345678'})
   public oldPass: string;
 
-  @ApiProperty({ type: 'string' })
+  @ApiProperty({ example: '00000000' })
   public newPass: string;
 }
 
 export class UserUpdatePassRes extends HttpRestApiResponse {
-  @ApiProperty({ type: 'string', example: 'Password updated.' })
+  @ApiProperty({ example: 'Password updated.' })
   public message: string;
 }

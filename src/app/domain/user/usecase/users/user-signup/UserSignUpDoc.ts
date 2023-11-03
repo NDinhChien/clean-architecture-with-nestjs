@@ -3,21 +3,20 @@ import { ApiProperty } from '@nestjs/swagger';
 import { UserRole } from '@core/enums/UserEnums';
 
 export class UserSignUpBody {
-  @ApiProperty({ type: 'string', example: 'dinhchien25112001@gmail.com' })
+  @ApiProperty({ example: 'test@gmail.com' })
   public email: string;
 
-  @ApiProperty({ type: 'string', example: '12345678' })
+  @ApiProperty({ example: '12345678' })
   public password: string;
 }
 
 export class UserSignUpResData {
   @ApiProperty({
-    type: 'string',
     example: '360fac3a-d3d8-44fa-ae8e-1430c9617eb3',
   })
   public id: string;
 
-  @ApiProperty({ type: 'string', example: 'dinhchien25112001@gmail.com' })
+  @ApiProperty({ example: 'test@gmail.com' })
   public email: string;
 
   @ApiProperty({ enum: UserRole, example: UserRole.GUEST })
@@ -25,7 +24,7 @@ export class UserSignUpResData {
 }
 
 export class UserSignUpRes extends HttpRestApiResponse {
-  @ApiProperty({ type: 'string', example: 'Signup successfully.' })
+  @ApiProperty({ example: 'Signup successfully.' })
   public message: string;
 
   @ApiProperty({ type: UserSignUpResData })

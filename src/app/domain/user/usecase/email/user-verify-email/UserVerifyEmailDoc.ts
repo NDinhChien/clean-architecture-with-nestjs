@@ -3,14 +3,14 @@ import { HttpRestApiResponse } from '@core/documentation/HttpRestApiResponse';
 import { IUserVerifyEmailBody } from './UserVerifyEmailPayload';
 
 export class UserVerifyEmailBody implements IUserVerifyEmailBody {
-  @ApiProperty({ type: 'string', example: 'dinhchien25112001@gmail.com' })
+  @ApiProperty({ example: 'test@gmail.com' })
   public email: string;
 
-  @ApiProperty({ type: 'string', example: '012345' })
+  @ApiProperty({ example: '232953' })
   public code: string;
 }
 
 export class UserVerifyEmailRes extends HttpRestApiResponse {
-  @ApiProperty({ type: 'string', example: 'Verified successfully.' })
+  @ApiProperty({ example: 'Verified successfully.' })
   public message: string;
 }

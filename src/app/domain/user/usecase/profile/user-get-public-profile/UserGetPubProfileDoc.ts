@@ -1,4 +1,3 @@
-import { ApiProperty } from '@nestjs/swagger';
 export const UserIdParam = {
   name: 'id',
   type: 'String',
