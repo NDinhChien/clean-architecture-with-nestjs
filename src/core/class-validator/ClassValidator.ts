@@ -1,5 +1,5 @@
 import { Optional } from '../common/CommonTypes';
-import { validate, ValidationError } from 'class-validator';
+import { validate, ValidationError, ValidatorOptions } from 'class-validator';
 
 export type ClassValidationDetails = {
   context: string;
@@ -18,7 +18,10 @@ export class ClassValidator {
     context?: string,
   ): Promise<Optional<ClassValidationDetails>> {
     let details: Optional<ClassValidationDetails>;
-    const errors: ValidationError[] = await validate(target);
+    const errors: ValidationError[] = await validate(target, {
+      stopAtFirstError: true,
+      whitelist: true,
+    });
 
     if (errors.length > 0) {
       details = {

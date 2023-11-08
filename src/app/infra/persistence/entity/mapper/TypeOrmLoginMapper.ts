@@ -1,4 +1,4 @@
-import { Login } from "../../../../domain/user/entity/Login";
+import { Login } from '../../../../domain/user/entity/Login';
 import { TypeOrmLogin } from '../TypeOrmLogin';
 
 export class TypeOrmLoginMapper {

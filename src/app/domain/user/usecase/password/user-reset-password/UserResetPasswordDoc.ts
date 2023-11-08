@@ -3,7 +3,7 @@ import { IUserResetPasswordBody } from './UserResetPasswordPayload';
 import { HttpRestApiResponse } from '@core/documentation/HttpRestApiResponse';
 
 export class UserResetPasswordBody implements IUserResetPasswordBody {
-  @ApiProperty({ example: 'test@gmail.com' })
+  @ApiProperty({ example: 'test@email.com' })
   public email: string;
 }
 

@@ -2,7 +2,7 @@ import { HttpRestApiResponse } from '@core/documentation/HttpRestApiResponse';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UserLoginBody {
-  @ApiProperty({ example: 'test123@gmail.com' })
+  @ApiProperty({ example: 'test@email.com' })
   public email: string;
 
   @ApiProperty({ example: '12345678' })

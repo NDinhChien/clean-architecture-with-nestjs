@@ -1,6 +1,6 @@
 import { UserRole } from '@core/enums/UserEnums';
 import { Nullable } from '@core/common/CommonTypes';
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn, PrimaryColumnOptions } from 'typeorm';
 
 @Entity('users')
 export class TypeOrmUser {

@@ -1,5 +1,5 @@
 import { Exclude, Expose, plainToInstance } from 'class-transformer';
-import { IsDefined, IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsString } from 'class-validator';
 import { UseCaseValidatableAdapter } from '@core/class-validator/ValidatableAdapter';
 
 export interface IUserSignUpBody {

@@ -1,9 +1,9 @@
-import { Login } from "../../../../app/domain/user/entity/Login";
+import { Login } from '../../../../app/domain/user/entity/Login';
 import { Rule } from '@app/../config/RuleConfig';
 
 const originalMaxTryTimes = Rule.LOGIN.MAX_TRY_TIMES;
 describe(`Login Domain entity - unit test`, () => {
-  const email = 'abc@gmail.com';
+  const email = 'test@email.com';
   let increaseTriedTimesSpy: any;
   let resetSpy: any;
   let login: Login;

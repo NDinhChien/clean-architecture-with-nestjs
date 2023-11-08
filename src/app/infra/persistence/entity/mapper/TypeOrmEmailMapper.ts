@@ -1,4 +1,4 @@
-import { Email } from "../../../../domain/user/entity/Email";
+import { Email } from '../../../../domain/user/entity/Email';
 import { TypeOrmEmail } from '../TypeOrmEmail';
 
 export class TypeOrmEmailMapper {

@@ -17,7 +17,7 @@ export class UserPublicInfoResData {
   @ApiPropertyOptional({ example: 'Chien' })
   public lastName?: string;
 
-  @ApiPropertyOptional({ type: Date, example: '2001-11-25T00:00:00.000Z' })
+  @ApiPropertyOptional({ type: Date, example: '2001-11-25' })
   public birthday?: Date;
 
   @ApiPropertyOptional({ example: 'hello the world' })

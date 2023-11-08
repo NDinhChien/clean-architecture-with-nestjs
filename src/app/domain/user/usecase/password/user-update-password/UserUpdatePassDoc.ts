@@ -3,7 +3,7 @@ import { IUserUpdatePassBody } from './UserUpdatePassPayload';
 import { HttpRestApiResponse } from '../../../../../../core/documentation/HttpRestApiResponse';
 
 export class UserUpdatePassBody implements IUserUpdatePassBody {
-  @ApiProperty({ example: '12345678'})
+  @ApiProperty({ example: '12345678' })
   public oldPass: string;
 
   @ApiProperty({ example: '00000000' })

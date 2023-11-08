@@ -4,7 +4,6 @@ import {
   Body,
   Controller,
   Get,
-  HttpCode,
   HttpStatus,
   Inject,
   Param,
@@ -113,9 +112,7 @@ import {
 @ApiTags('users')
 @Controller('users')
 export class UserController {
-
   constructor(
-
     @Inject(UserDITokens.UserSignUpUseCase)
     private readonly userSignUpUseCase: IUserSignUpUseCase,
 
@@ -142,7 +139,6 @@ export class UserController {
 
     @Inject(UserDITokens.UserGetPubProfileUseCase)
     private readonly userGetPubProfileUseCase: IUserGetPubProfileUseCase,
-
   ) {}
 
   @Post('/signup')
@@ -248,7 +244,6 @@ export class UserController {
     );
   }
 
-  
   @Put('email/issue')
   @ApiBody({ type: IssueEmailCodeBody })
   @ApiResponse({ type: IssueEmailCodeRes })
@@ -315,5 +310,4 @@ export class UserController {
       'Reset password successfully.',
     );
   }
-
 }

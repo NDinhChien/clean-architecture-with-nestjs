@@ -2,13 +2,11 @@ import { Exclude, Expose, plainToInstance } from 'class-transformer';
 import { IsEmail, IsUUID } from 'class-validator';
 import { UseCaseValidatableAdapter } from '@core/class-validator/ValidatableAdapter';
 
-/*---------------Interface----------------*/
 export interface IUserLogoutPayload {
   id: string;
   email: string;
 }
 
-/*------------UseCase Payload-------------*/
 @Exclude()
 export class UserLogoutPayload
   extends UseCaseValidatableAdapter

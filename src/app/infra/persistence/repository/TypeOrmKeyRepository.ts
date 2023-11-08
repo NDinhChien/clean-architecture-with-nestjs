@@ -4,12 +4,7 @@ import { InfraDITokens } from '../../InfraDITokens';
 import { Key } from '../../../domain/user/entity/Key';
 import { TypeOrmKeyMapper } from '../entity/mapper/TypeOrmKeyMapper';
 import { TypeOrmKey } from '../entity/TypeOrmKey';
-import {
-  Repository,
-  SelectQueryBuilder,
-  DataSource,
-  TypeORMError,
-} from 'typeorm';
+import { Repository, SelectQueryBuilder, DataSource } from 'typeorm';
 import { IKeyRepository } from './interface/IKeyRepository';
 import { Transactional } from 'typeorm-transactional';
 

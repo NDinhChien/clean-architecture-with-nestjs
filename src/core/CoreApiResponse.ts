@@ -14,7 +14,7 @@ export class CoreApiResponse<TData> {
     this.code = code;
     this.message = message;
     this.data = data || null;
-    this.timestamp = new Date().toISOString();
+    this.timestamp = new Date().toLocaleString();
   }
 
   public static success<TData>(

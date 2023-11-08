@@ -93,7 +93,7 @@ describe('POST /users/login - User Login UseCase', () => {
   });
   const endpoint = '/auth/login';
   const id = v4();
-  const email = 'abc@gmail.com';
+  const email = 'test@email.com';
   const password = '12345678';
   const role = UserRole.GUEST;
 

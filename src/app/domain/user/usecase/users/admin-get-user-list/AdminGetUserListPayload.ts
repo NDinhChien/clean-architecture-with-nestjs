@@ -1,10 +1,5 @@
 import { Exclude, Expose, Transform, plainToInstance } from 'class-transformer';
-import {
-  IsBoolean,
-  IsBooleanString,
-  IsNumber,
-  IsNumberString,
-} from 'class-validator';
+import { IsBoolean, IsNumber } from 'class-validator';
 import { UseCaseValidatableAdapter } from '../../../../../../core/class-validator/ValidatableAdapter';
 
 export interface IAdminGetUserListQuery {
@@ -21,17 +16,17 @@ export class AdminGetUserListPayload
   implements IAdminGetUserListPayload
 {
   @IsNumber()
-  @Transform(({value}) => Number(value))
+  @Transform(({ value }) => Number(value))
   @Expose()
   public offset: number;
 
   @IsNumber()
-  @Transform(({value}) => Number(value))
+  @Transform(({ value }) => Number(value))
   @Expose()
   public limit: number;
 
   @IsBoolean()
-  @Transform(({value}) => Boolean(value))
+  @Transform(({ value }) => Boolean(value))
   @Expose()
   public includeRemoved: boolean;
 

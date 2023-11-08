@@ -25,7 +25,7 @@ export class IssueEmailCodeUseCase implements IIssueEmailCodeUseCase {
       email.updateForIssue();
       await this.emailRepo.updateOne(email);
       await this.emailSender.sendEmailCode(email.getEmail(), email.getCode());
-      console.log('Send email code: ', email.getCode());
+      console.log('Email code sent: ', email.getCode());
     }
   }
 }

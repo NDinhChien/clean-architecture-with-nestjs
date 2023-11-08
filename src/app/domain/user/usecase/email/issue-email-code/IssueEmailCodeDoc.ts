@@ -3,7 +3,7 @@ import { IIssueEmailCodeBody } from './IssueEmailCodePayload';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class IssueEmailCodeBody implements IIssueEmailCodeBody {
-  @ApiProperty({ example: 'test@gmail.com' })
+  @ApiProperty({ example: 'test@email.com' })
   public email: string;
 }
 

@@ -5,6 +5,7 @@ import { Injectable, Inject } from '@nestjs/common';
 import { UserPublicInfoDto } from '../../dto/UserPublicInfoDto';
 import { UserEditProfilePayload } from './UserEditProfilePayload';
 import { UserPublicInfoResData } from '../../dto/res/UserPublicInfoRes';
+import { TypeOrmUserMapper } from '../../../../../infra/persistence/entity/mapper/TypeOrmUserMapper';
 
 @Injectable()
 export class UserEditProfileUseCase implements IUserEditProfileUseCase {

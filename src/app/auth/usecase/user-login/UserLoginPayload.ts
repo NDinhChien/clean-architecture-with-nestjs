@@ -1,25 +1,19 @@
 import { Exclude, Expose, plainToInstance } from 'class-transformer';
 import {
-  IsDefined,
   IsEmail,
   IsString,
   Matches,
   MaxLength,
-  Min,
   MinLength,
-  maxLength,
-  minLength,
 } from 'class-validator';
 import { UseCaseValidatableAdapter } from '@core/class-validator/ValidatableAdapter';
 
-/*---------------Interface----------------*/
 export interface IUserLoginBody {
   email: string;
   password: string;
 }
 export interface IUserLoginPayload extends IUserLoginBody {}
 
-/*------------UseCase Payload-------------*/
 @Exclude()
 export class UserLoginPayload
   extends UseCaseValidatableAdapter
@@ -29,10 +23,10 @@ export class UserLoginPayload
   @Expose()
   public email: string;
 
-  @IsString()
-  @MinLength(6)
-  @MaxLength(30)
   @Matches(/^[a-zA-Z0-9#$@&%]*$/)
+  @MaxLength(30)
+  @MinLength(6)
+  @IsString()
   @Expose()
   public password: string;
 

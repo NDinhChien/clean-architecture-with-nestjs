@@ -47,7 +47,7 @@ describe(`TypeOrmUserRepository - e2e test`, () => {
     await userManager.delete({});
   });
   const id = v4();
-  const email = 'abc@gmail.com';
+  const email = 'test@email.com';
   const password = '12345678';
   const role = UserRole.GUEST;
 

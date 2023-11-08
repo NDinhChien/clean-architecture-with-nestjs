@@ -1,6 +1,4 @@
-import {
-  UserController,
-} from './UserController';
+import { UserController } from './UserController';
 import { UserDITokens } from './UserDITokens';
 import { UserSignUpUseCase } from './usecase/users/user-signup/UserSignUpUseCase';
 import { TypeOrmEmailRepository } from '../../infra/persistence/repository/TypeOrmEmailRepository';
@@ -80,9 +78,7 @@ const useCaseProviders: Provider[] = [
 ];
 
 @Module({
-  controllers: [
-    UserController,
-  ],
+  controllers: [UserController],
   providers: [...persistenceProviders, ...useCaseProviders],
   exports: [
     UserDITokens.UserRepository,

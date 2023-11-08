@@ -27,7 +27,6 @@ import {
   Body,
   Controller,
   Delete,
-  HttpCode,
   HttpStatus,
   Post,
   Put,
@@ -90,7 +89,6 @@ export class AuthController {
   }
 
   @Put('token/refresh')
-  
   @ApiBearerAuth()
   @ApiBody({ type: UserRefreshTokenBody })
   @ApiResponse({ type: UserRefreshTokenRes })

@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { UserRole } from '@core/enums/UserEnums';
 
 export class UserSignUpBody {
-  @ApiProperty({ example: 'test@gmail.com' })
+  @ApiProperty({ example: 'test@email.com' })
   public email: string;
 
   @ApiProperty({ example: '12345678' })
@@ -16,7 +16,7 @@ export class UserSignUpResData {
   })
   public id: string;
 
-  @ApiProperty({ example: 'test@gmail.com' })
+  @ApiProperty({ example: 'test@email.com' })
   public email: string;
 
   @ApiProperty({ enum: UserRole, example: UserRole.GUEST })
